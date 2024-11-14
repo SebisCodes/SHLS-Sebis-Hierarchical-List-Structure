@@ -2,13 +2,15 @@
 
 **Sebis Hierarchical List Structure (SHLS)**, developed by *Sebastian Grünwald*, is a format optimized for token-efficient, structured data representation. All values in SHLS are interpreted exclusively as strings. Reinterpretation of these values to other data types must be handled by an interpreter.
 
-### Table of Contents
+---
+
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Rules for Formatting SHLS](#rules-for-formatting-shls)
   - [1. Indexing at the Beginning](#1-indexing-at-the-beginning)
   - [2. Key Requirement for Subarrays](#2-key-requirement-for-subarrays)
-  - [3. Single Space after the Key List](#3-single-space-after-the-key-list)
+  - [3. Single New Line after the Key List](#3-single-new-line-after-the-key-list)
 - [Example](#example)
 - [Benefits](#benefits)
 - [License](#license)
@@ -19,25 +21,29 @@
 
 SHLS is designed for efficient, compact data representation by using indentation for hierarchy without redundant symbols like quotation marks, brackets, or colons. It’s particularly effective in constrained environments where minimizing data size and network load is important. All values in SHLS are treated as strings by default. If values need to be converted to other types (e.g., integers, booleans), this should be done by an interpreter.
 
+---
+
 ## Rules for Formatting SHLS
 
 ### 1. Indexing at the Beginning
-   - Each SHLS file must start with an **index**. This index lists all the keys used within the file and outlines the document structure.
-   - The index defines the hierarchy and serves as a blueprint for the data structure that follows, making it easier for readers and parsers to understand the format.
+- Each SHLS object must start with an **index**. This index must contain a key-block at the beginning with all the keys used for this object.
+- The keys in the first block define the hierarchy and serve as a blueprint for the data structure that follows, making it easier for readers and parsers to understand the format.
+- The key-block must be separated with an empty line if data follows right after.
 
 ### 2. Key Requirement for Subarrays
-   - Every subarray in SHLS must have a **named key**, as listed in the initial index. This is particularly crucial when multiple arrays appear consecutively.
-   - The key for each subarray ensures clarity, helping to distinguish between different levels and groups of data, and prevents misinterpretation of relationships among elements. Note the PH (placeholder) in the example. Its only use is for a clear structure.
+- Every subarray in SHLS must have a **named key**. This is particularly crucial when multiple arrays appear consecutively.
+- The key for each subarray ensures clarity, helping to distinguish between different levels and groups of data, and prevents misinterpretation of relationships among elements. Note the **PH (placeholder)** in the example. Its only use is for a clear structure.
 
-### 3. Single new line after the Key List
-   - After the initial key list (index), a single blank line is required to separate the index from the actual data entries.
-   - Additional blank spaces after the key list are unnecessary, as SHLS hierarchy is controlled solely by indentation (spaces) and counting of values. Extra lines do not impact the structure and are not required.
+### 3. Single New Line after the Key List
+- After the initial key-block, a single blank line is required to separate the index from the actual data entries if data for the same object follows right after.
+- Additional blank spaces after the key list are unnecessary, as SHLS hierarchy is controlled solely by indentation (spaces) and counting of values. Extra lines do not impact the structure and are not required.
+- You can separate definitions from data blocks by reusing the object index in another line.
 
 ---
 
 ## Example
 
-Below is an example of a SHLS data structure with values interpreted as strings. Converting values to other data types (e.g., integers or booleans) requires an interpreter:
+Below is an example of a SHLS data structure with values interpreted as strings. Converting values to other data types (e.g., integers or booleans) must be done by the user:
 
 ```plaintext
 Product
@@ -92,7 +98,7 @@ Company
  150
 ```
 
-In this example, each value is stored as a string by default. An interpreter is required to convert data types as needed for processing (e.g., "true" to boolean, "2023-09-01" to a date, and "599.99" to a float).
+In this example, each value is stored as a string by default. After interpreting, the user must convert data types as needed for processing (e.g., "true" to boolean, "2023-09-01" to a date, and "599.99" to a float). Multiline content is not supported. Use workarounds if needed.
 
 ## Benefits
 
@@ -102,5 +108,5 @@ In this example, each value is stored as a string by default. An interpreter is 
 
 ## License
 
-SHLS is a project by Sebastian Grünwald. For questions, please contact me: sebiscodes@gmail.com
+SHLS is a project by Sebastian Grünwald and is free to use for personal and commercial purposes. Please reference my GitHub if used in your projects.
 
