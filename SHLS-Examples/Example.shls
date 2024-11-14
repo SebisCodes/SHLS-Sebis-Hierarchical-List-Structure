@@ -1,0 +1,92 @@
+Company
+ ID
+ Name
+ Founded
+ Location
+ Departments
+  DepartmentID
+  DepartmentName
+  Employees
+   EmployeeID
+   Name
+   Role
+   Salary
+   StartDate
+   FullTime
+
+ 1001
+ Tech Solutions Inc.
+ 2008
+ New York, USA
+ Departments
+  001
+  Development
+  Employees
+   1001
+   Alice Smith
+   Software Engineer
+   90000
+   2019-06-01
+   true
+
+   1002
+   Bob Johnson
+   Data Scientist
+   95000
+   2020-02-15
+   true
+
+  002
+  Human Resources
+  Employees
+   2001
+   Carol White
+   HR Specialist
+   60000
+   2021-09-10
+   true
+
+   2002
+   David Brown
+   Recruiter
+   55000
+   2018-11-05
+   false
+
+  003
+  Marketing
+  Employees
+   3001
+   Emily Green
+   Marketing Lead
+   80000
+   2017-03-20
+   true
+
+   3002
+   Frank Black
+   Social Media Manager
+   50000
+   2022-08-15
+   true
+
+Financials
+ Year
+ Revenue
+ Expenses
+ NetProfit
+
+ 2021
+ 5000000
+ 3500000
+ 1500000
+
+ 2022
+ 5200000
+ 3700000
+ 1500000
+
+ 2023
+ 5400000
+ 3800000
+ 1600000
